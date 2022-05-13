@@ -1,0 +1,15 @@
+[package]
+name = "ec-gpu-gen"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ec-gpu = { path = "../ec-gpu" }
+rust-gpu-tools = { git = 'https://github.com/zeeka-network/rust-gpu-tools.git', rev = "6f74077", default-features = false, optional = true }
+
+[features]
+default = ["cuda", "opencl"]
+cuda = ["rust-gpu-tools/cuda"]
+opencl = ["rust-gpu-tools/opencl"]
